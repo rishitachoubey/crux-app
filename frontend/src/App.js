@@ -104,23 +104,23 @@ function App() {
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 4 }}>
         <Box sx={{ width: 500, mb: 2 }}>
           <Typography sx={{ fontWeight: 700, fontSize: 20, mb: 1 }}>URLs</Typography>
-          <TextField
-            variant="outlined"
-            value={url}
-            onChange={e => setUrl(e.target.value)}
-            sx={{
+        <TextField
+          variant="outlined"
+          value={url}
+          onChange={e => setUrl(e.target.value)}
+          sx={{
               width: '100%',
-              background: '#fff',
+            background: '#fff',
               borderRadius: 2,
               textarea: { fontSize: 18, textAlign: 'left', minHeight: 90 }
-            }}
+          }}
             inputProps={{ style: { fontSize: 18, textAlign: 'left' } }}
             multiline
             minRows={3}
             maxRows={8}
             placeholder={"Enter one or more URLs, each on a new line"}
             helperText="Enter one URL per line."
-          />
+        />
         </Box>
         <Button
           variant="contained"
@@ -253,7 +253,7 @@ function App() {
                 ) : (
                   <>
                     <TableCell align="center" sx={{ height: 60, border: '2px solid #222', fontSize: 18, padding: '8px' }}>
-                      {row.data1}
+                  {row.data1}
                     </TableCell>
                     <TableCell align="center" sx={{ height: 60, border: '2px solid #222', fontSize: 18, padding: '8px' }}>
                       {row.data2}
