@@ -16,49 +16,70 @@ A web app to fetch and visualize Chrome UX Report (CrUX) data for one or more UR
 
 ## Setup & Run Instructions
 
-### Prerequisites
-- Node.js (v16 or v18 recommended)
-- npm (comes with Node.js)
-- Google Cloud API key with Chrome UX Report API enabled
+### 1. Unzip the Project
+Extract the contents of `crux.zip` to your desired location.
 
-### 1. Clone or Unzip the Project
-```bash
-git clone <your-repo-url>
-cd <project-folder>
-```
+### 2. Install Prerequisites
+- **Node.js** (v16 or v18 recommended)
+- **npm** (comes with Node.js)
 
-### 2. Backend Setup
-```bash
-cd backend
+### 3. Backend Setup
+```sh
+cd crux/backend
 npm install
+cp .env.example .env
+# Edit .env and set your Google Chrome UX Report API key
 ```
-- Set your CrUX API key in `index.js`:
-  ```js
-  const CRUX_API_KEY = 'YOUR_API_KEY';
+- Open `.env` and set:
   ```
-- Start the backend:
-  ```bash
-  node index.js
+  CRUX_API_KEY=your_actual_crux_api_key_here
   ```
-  (Runs on port 5050 by default)
+  > You must obtain a valid API key from Google Cloud Console with the Chrome UX Report API enabled.
 
-### 3. Frontend Setup
-```bash
-cd ../frontend
+- Start the backend:
+  ```sh
+  npm start
+  ```
+  The backend will run on [http://localhost:5050](http://localhost:5050).
+
+### 4. Frontend Setup
+```sh
+cd crux/frontend
 npm install
 npm start
 ```
-- App opens at [http://localhost:3000](http://localhost:3000)
+- The app will open at [http://localhost:3000](http://localhost:3000).
+
+### 5. Usage
+- Enter one or more URLs (one per line) in the input box.
+- Click **SEARCH** to fetch and view Chrome UX Report metrics.
+- Use filter and sort features as needed.
+- View summary and actionable insights below the table.
 
 ---
 
-## Usage
-1. Enter one or more URLs (one per line)
-2. Click **SEARCH**
-3. View CrUX metrics in the table
-4. Use filter controls to filter results
-5. Click table headers to sort
-6. See summary and insights below the table
+### Notes
+- **API Key:** Use your own Google API key. The `.env.example` file provides the required variable name.
+- **No node_modules:** Run `npm install` in both `backend` and `frontend` to install dependencies.
+- **No sensitive data:** The `.env` file is not included in the zip for security.
+
+---
+
+### Project Structure
+```
+crux/
+  backend/
+    index.js
+    package.json
+    package-lock.json
+    .env.example
+  frontend/
+    src/
+    public/
+    package.json
+  .gitignore
+  README.md
+```
 
 ---
 
@@ -96,3 +117,4 @@ npm start
 
 ## License
 MIT 
+ 
