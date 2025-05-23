@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #ccc;
+    font-family: 'Roboto', Arial, sans-serif;
+  }
+  
+  #root {
+    min-height: 100vh;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+    background: #ccc;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 4px;
+  }
