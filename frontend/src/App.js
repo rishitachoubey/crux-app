@@ -4,8 +4,6 @@ import {
   TableContainer, TableHead, TableRow, Paper, Typography, IconButton
 } from '@mui/material';
 import axios from 'axios';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 
 function App() {
   const [url, setUrl] = useState('');
