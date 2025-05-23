@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = express();
 const corsOptions = {
@@ -14,7 +16,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.options('*', cors(corsOptions));
 
-const CRUX_API_KEY = 'AIzaSyDiLeV6Dw1Jc-n7fDUP3w8-rp-tURo1ky0';
+const CRUX_API_KEY = process.env.CRUX_API_KEY;
 
 app.post('/api/search', async (req, res) => {
   const { urls } = req.body;
@@ -23,11 +25,11 @@ app.post('/api/search', async (req, res) => {
   }
   try {
     const results = await Promise.all(urls.map(async (url) => {
-      try {
-        const response = await axios.post(
-          `https://chromeuxreport.googleapis.com/v1/records:queryRecord?key=${CRUX_API_KEY}`,
-          { url }
-        );
+  try {
+    const response = await axios.post(
+      `https://chromeuxreport.googleapis.com/v1/records:queryRecord?key=${CRUX_API_KEY}`,
+      { url }
+    );
         return { url, metrics: response.data.record?.metrics || {} };
       } catch (err) {
         return { url, error: err.response?.data || err.message };
